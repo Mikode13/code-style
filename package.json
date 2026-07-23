@@ -1,0 +1,31 @@
+{
+	"name": "@mikode/code-style",
+	"version": "0.1.0",
+	"description": "Shared code-formatting conventions for Mikode projects.",
+	"type": "module",
+	"packageManager": "pnpm@10.13.1",
+	"exports": {
+		"./prettier": "./src/prettier.mjs"
+	},
+	"files": [
+		"src"
+	],
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"format": "prettier . --write --config src/prettier.mjs",
+		"format:check": "prettier . --check --config src/prettier.mjs",
+		"pack:check": "npm pack --dry-run"
+	},
+	"peerDependencies": {
+		"prettier": "^3.5.0"
+	},
+	"devDependencies": {
+		"prettier": "^3.5.0"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"publishConfig": {
+		"access": "public"
+	}
+}
