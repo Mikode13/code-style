@@ -1,3 +1,17 @@
 node_modules/
+coverage/
 *.tgz
+.claude/settings.local.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Managed by @mikode13/git-hooks
+.husky/_/
+.pnpm-store/
