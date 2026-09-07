@@ -46,8 +46,9 @@ test makes the omission visible in review rather than after the release.
 **Consequences.** The suite needs Prettier as a real development dependency and pins its
 expectations to Prettier's actual output, so a genuine upstream change in formatting will
 surface here as a failing test — which is the intended signal, not noise. Verified by
-mutation: flipping `useTabs` fails five tests, `singleQuote` five, `trailingComma` four,
-and `printWidth` and `arrowParens` two each.
+mutation: flipping `useTabs` fails five tests, `singleQuote` five, `jsxSingleQuote` four,
+`trailingComma` four, `singleAttributePerLine` three, and `printWidth`, `arrowParens` and
+`bracketSameLine` two each.
 
 ## The publishable file set is listed explicitly
 

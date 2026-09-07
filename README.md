@@ -28,7 +28,7 @@ in [`@mikode13/tsconfig`](https://github.com/Mikode13/tsconfig). The package nam
 permanently tied to Prettier, but adding a second tool needs a decision, not just a file.
 
 Prettier 3 is a peer dependency, so the consuming project chooses the exact version.
-Node.js 22.13 or later is required.
+Node.js 22.13+ and Node.js 24 are supported.
 
 ## Install
 

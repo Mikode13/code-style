@@ -150,14 +150,53 @@ describe('formatting behaviour', () => {
 		expect(output).toBe('const point = { x: 1, y: 2 };\n');
 	});
 
-	it('double-quotes JSX attributes and closes the tag on its own line', async () => {
+	it('double-quotes JSX attributes while JavaScript strings stay single-quoted', async () => {
+		// The input has each convention on the wrong side, so a formatter that ignored either
+		// `jsxSingleQuote` or `singleQuote` would leave one of them untouched.
 		const output = await formatted(
-			'const element = <Button kind="primary" size="large" onPress={handlePress}>Go</Button>;\n',
+			'const element = <Button kind=\'primary\' onPress={() => track("press")}>Go</Button>;\n',
 			'babel',
 		);
 
-		expect(output).toContain('kind="primary"');
-		expect(output).not.toContain("kind='primary'");
+		expect(output).toBe(
+			'const element = (\n\t<Button kind="primary" onPress={() => track(\'press\')}>\n\t\tGo\n\t</Button>\n);\n',
+		);
+	});
+
+	it('keeps several JSX attributes on one line when they fit', async () => {
+		const output = await formatted(
+			'const element = <Button kind="primary" size="large" tone="neutral">Go</Button>;\n',
+			'babel',
+		);
+
+		expect(output).toBe(
+			'const element = (\n\t<Button kind="primary" size="large" tone="neutral">\n\t\tGo\n\t</Button>\n);\n',
+		);
+	});
+
+	it('puts the closing bracket of a broken JSX tag on its own line', async () => {
+		// `bracketSameLine` only has an observable effect once the attribute list itself breaks,
+		// so this element carries enough attributes to exceed 100 columns.
+		const output = await formatted(
+			'const element = <Button kind="primary" size="large" tone="neutral" alignment="center" ' +
+				'emphasis="strong" onPress={handlePress}>Go</Button>;\n',
+			'babel',
+		);
+
+		expect(output).toBe(
+			'const element = (\n' +
+				'\t<Button\n' +
+				'\t\tkind="primary"\n' +
+				'\t\tsize="large"\n' +
+				'\t\ttone="neutral"\n' +
+				'\t\talignment="center"\n' +
+				'\t\temphasis="strong"\n' +
+				'\t\tonPress={handlePress}\n' +
+				'\t>\n' +
+				'\t\tGo\n' +
+				'\t</Button>\n' +
+				');\n',
+		);
 	});
 
 	it('leaves prose line breaks in Markdown exactly where the author put them', async () => {
