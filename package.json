@@ -1,31 +1,49 @@
 {
-  "name": "@mikode13/code-style",
-  "version": "0.1.0",
-  "description": "Shared code-formatting conventions for Mikode projects.",
-  "type": "module",
-  "packageManager": "pnpm@10.13.1",
-  "exports": {
-    "./prettier": "./src/prettier.mjs"
-  },
-  "files": [
-    "src"
-  ],
-  "engines": {
-    "node": ">=20"
-  },
-  "scripts": {
-    "format": "prettier . --write --config src/prettier.mjs",
-    "format:check": "prettier . --check --config src/prettier.mjs",
-    "pack:check": "npm pack --dry-run"
-  },
-  "peerDependencies": {
-    "prettier": "^3.5.0"
-  },
-  "devDependencies": {
-    "prettier": "^3.5.0"
-  },
-  "license": "SEE LICENSE IN LICENSE",
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@mikode13/code-style",
+	"version": "0.0.0-development",
+	"description": "Shared code-formatting conventions for MiKode projects",
+	"license": "SEE LICENSE IN LICENSE",
+	"type": "module",
+	"packageManager": "pnpm@11.17.0",
+	"engines": {
+		"node": "^22.13.0 || ^24.0.0"
+	},
+	"files": [
+		"src"
+	],
+	"exports": {
+		"./prettier": "./src/prettier.mjs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mikode13/code-style.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"peerDependencies": {
+		"prettier": "^3.5.0"
+	},
+	"scripts": {
+		"prepare": "mikode-git-hooks install",
+		"format": "prettier . --write",
+		"format:check": "prettier . --check",
+		"lint": "eslint . --max-warnings 0",
+		"lint:fix": "eslint . --fix",
+		"typecheck": "tsc --noEmit && tsc --noEmit -p tests",
+		"test": "pnpm run test:integration",
+		"test:integration": "vitest run --project integration",
+		"check": "pnpm run format:check && pnpm run lint && pnpm run typecheck",
+		"pack:check": "node scripts/pack-check.mjs"
+	},
+	"devDependencies": {
+		"@mikode13/code-quality": "0.1.0",
+		"@mikode13/git-hooks": "0.1.0",
+		"@mikode13/tsconfig": "1.0.0",
+		"@types/node": "^26.1.2",
+		"eslint": "^10.8.0",
+		"prettier": "^3.9.6",
+		"typescript": "^6.0.3",
+		"vitest": "^4.1.11"
+	}
 }
