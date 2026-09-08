@@ -9,11 +9,11 @@ importers:
   .:
     devDependencies:
       '@mikode13/code-quality':
-        specifier: 0.1.0
-        version: 0.1.0(@typescript-eslint/utils@8.69.0(eslint@10.10.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.10.0(jiti@2.6.1))
+        specifier: 1.0.0
+        version: 1.0.0(@typescript-eslint/utils@8.69.0(eslint@10.10.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.10.0(jiti@2.6.1))
       '@mikode13/git-hooks':
-        specifier: 0.1.0
-        version: 0.1.0(@types/node@26.4.1)(typescript@6.0.3)
+        specifier: 1.0.0
+        version: 1.0.0(@types/node@26.4.1)(typescript@6.0.3)
       '@mikode13/tsconfig':
         specifier: 1.0.0
         version: 1.0.0
@@ -306,14 +306,14 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@mikode13/code-quality@0.1.0':
-    resolution: {integrity: sha512-Wx0gMVRO4IdwqcctcsHtjSk6pBDrCl0a45cjw002ikiWeJ+uPSsFjVNyXnKIevsA2E6TLLw1TTR7PgRQ0EY2wA==}
+  '@mikode13/code-quality@1.0.0':
+    resolution: {integrity: sha512-oVs/28SILwrAg/4hSCf897yfoi3EChELXNZoFSTGL7+IjWpRDOtEl5l/wI3Vv/391tamUbjotDiG4FzwSVMmxg==}
     engines: {node: ^22.13.0 || ^24.0.0}
     peerDependencies:
       eslint: ^10.8.0
 
-  '@mikode13/git-hooks@0.1.0':
-    resolution: {integrity: sha512-uUFvtF1vv6Cb9ShYwH6Y9PTTKuMnz7thyMOt1dYk7ZrskRviwgDmdbuJI0LTPcagFMri10qNGMIHocbsMzbrJQ==}
+  '@mikode13/git-hooks@1.0.0':
+    resolution: {integrity: sha512-2NX7pfsUEhjcOB7hJ2dUzSK0C261DGKva32L7YvaAuPQIzb7kBohJNcIcUndH7zTWEbs2RjECWfw3s7tPcfAMQ==}
     engines: {node: ^22.13.0 || ^24.0.0}
     hasBin: true
 
@@ -1952,7 +1952,7 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@mikode13/code-quality@0.1.0(@typescript-eslint/utils@8.69.0(eslint@10.10.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.10.0(jiti@2.6.1))':
+  '@mikode13/code-quality@1.0.0(@typescript-eslint/utils@8.69.0(eslint@10.10.0(jiti@2.6.1))(typescript@6.0.3))(eslint@10.10.0(jiti@2.6.1))':
     dependencies:
       '@eslint-react/eslint-plugin': 5.18.0(eslint@10.10.0(jiti@2.6.1))(typescript@6.0.3)
       '@eslint/js': 10.0.1(eslint@10.10.0(jiti@2.6.1))
@@ -1970,7 +1970,7 @@ snapshots:
       - eslint-plugin-import
       - supports-color
 
-  '@mikode13/git-hooks@0.1.0(@types/node@26.4.1)(typescript@6.0.3)':
+  '@mikode13/git-hooks@1.0.0(@types/node@26.4.1)(typescript@6.0.3)':
     dependencies:
       '@commitlint/config-conventional': 21.2.0
       '@commitlint/lint': 21.2.0
@@ -2094,8 +2094,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.65.0(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.65.0(typescript@6.0.3)
-      '@typescript-eslint/types': 8.65.0
+      '@typescript-eslint/tsconfig-utils': 8.69.0(typescript@6.0.3)
+      '@typescript-eslint/types': 8.69.0
       debug: 4.4.3
       typescript: 6.0.3
     transitivePeerDependencies:
